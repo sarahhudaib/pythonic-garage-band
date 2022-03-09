@@ -1,0 +1,8 @@
+{
+    "cSpell.words": [
+        "pythonic"
+    ],
+    "python.analysis.extraPaths": [
+        "./pythonic_garage_band"
+    ]
+}

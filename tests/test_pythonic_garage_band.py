@@ -9,7 +9,7 @@ from pythonic_garage_band.garage_band import (
 )
 
 
-# @pytest.mark.skip("todo")
+@pytest.mark.skip("todo")
 def test_guitarist_str():
     joan = Guitarist("Joan Jett", "guitar")
     actual = str(joan)
@@ -17,7 +17,7 @@ def test_guitarist_str():
     assert actual == expected
 
 
-# @pytest.mark.skip("todo")
+@pytest.mark.skip("todo")
 def test_guitarist_repr():
     joan = Guitarist("Joan Jett" , "guitar")
     actual = repr(joan)
@@ -25,7 +25,7 @@ def test_guitarist_repr():
     assert actual == expected
 
 
-# @pytest.mark.skip("todo")
+@pytest.mark.skip("todo")
 def test_drummer_str():
     sheila = Drummer("Sheila E.", "drums")
     actual = str(sheila)
@@ -33,7 +33,7 @@ def test_drummer_str():
     assert actual == expected
 
 
-# @pytest.mark.skip("todo")
+@pytest.mark.skip("todo")
 def test_drummer_repr():
     sheila = Drummer("Sheila E.", "drums")
     actual = repr(sheila)
@@ -41,14 +41,14 @@ def test_drummer_repr():
     assert actual == expected
 
 
-# @pytest.mark.skip("todo")
+@pytest.mark.skip("todo")
 def test_bassist_str():
     meshell = Bassist("Meshell Ndegeocello", "bass")
     actual = str(meshell)
     expected = "My name is Meshell Ndegeocello and I play bass"
     assert actual == expected
 
-# @pytest.mark.skip("todo")
+@pytest.mark.skip("todo")
 def test_bassist_repr():
     meshell = Bassist("Meshell Ndegeocello", "bass")
     actual = repr(meshell)
@@ -56,40 +56,40 @@ def test_bassist_repr():
     assert actual == expected
 
 
-# @pytest.mark.skip("todo")
+@pytest.mark.skip("todo")
 def test_band_name():
     nirvana = Band("Nirvana", [])
 
     assert nirvana.name == "Nirvana"
 
 
-# @pytest.mark.skip("todo")
+@pytest.mark.skip("todo")
 def test_guitarist():
     jimi = Guitarist("Jimi Hendrix", "guitar")
     assert jimi.name == "Jimi Hendrix"
     assert jimi.get_instrument() == "guitar"
 
 
-# @pytest.mark.skip("todo")
+@pytest.mark.skip("todo")
 def test_bassist():
     flea = Bassist("Flea" , "bass")
     assert flea.name == "Flea"
     assert flea.get_instrument() == "Bass"
 
 
-# @pytest.mark.skip("todo")
+@pytest.mark.skip("todo")
 def test_drummer():
     ginger = Drummer("Ginger Baker", "drums")
     assert ginger.name == "Ginger Baker"
     assert ginger.get_instrument() == "Drums"
 
 
-# @pytest.mark.skip("todo")
+@pytest.mark.skip("todo")
 def test_instruments(jimmy):
     assert jimmy.instrument == 'guitar'
 
 
-# @pytest.mark.skip("todo")
+@pytest.mark.skip("todo")
 def test_individual_solos(jimmy):
         if jimmy.get_instrument() == "guitar":
             assert jimmy.play_solo() == "face melting guitar solo"
@@ -99,7 +99,7 @@ def test_individual_solos(jimmy):
             assert jimmy.play_solo() == "rattle boom crash"
 
 
-# @pytest.mark.skip("todo")
+@pytest.mark.skip("todo")
 def test_band_members_jimmy(jimmy):
     assert len(jimmy.members) == 4
     assert isinstance(jimmy, Guitarist)
@@ -108,12 +108,12 @@ def test_band_members_jimmy(jimmy):
     assert jimmy.instrument == 'guitar'
 
 
-# @pytest.mark.skip("todo")
+@pytest.mark.skip("todo")
 def test_play_solos_for_jimmy(jimmy):
     assert jimmy.play_solo() == "face melting guitar solo"
  
     
-# @pytest.mark.skip("todo")
+@pytest.mark.skip("todo")
 def test_class_tracks_instances():
     assert Band.to_list() == []
     the_nobodies = Band("The Nobodies", [])
@@ -121,7 +121,7 @@ def test_class_tracks_instances():
     assert Band.instances[0] == the_nobodies
 
 
-# @pytest.mark.skip("todo")
+@pytest.mark.skip("todo")
 def test_to_list():
     assert Band.to_list() == []
     the_nobodies = Band("The Nobodies", [])

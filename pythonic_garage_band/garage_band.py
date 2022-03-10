@@ -1,134 +1,84 @@
-from abc import abstractmethod, ABC
+from abc import abstractmethod
 
-class Band():
-    members = []
-
-    def __init__(self, name, band):
-        self.band = band
+class Band:
+    ''' class which creates band instances'''
+    instances = []
+    def __init__(self, name, members):
         self.name = name
-        self.__class__.members.append(self)
+        self.members = members
+        Band.instances.append(self)
 
-    def __repr__(self):
-        return f'{self.name}'
-
-    @classmethod
-    def play_solos(cls):
-        for member in cls.members:
-            print(f'Super {member.instrument} solo from {member}')
-            
+    def __str__(self):
+        return self.name
     
+    def __repr__(self):
+        return self.name
 
-    @classmethod
-    def create_from_data(cls, data):
-        for musician in data:
-          if musician['instrument'] == 'Guitar':
-              cls.members.append(
-                  Guitarist(musician['name'], musician['instrument']))
-              continue
-
-          elif musician['instrument'] == 'Bass':
-              cls.members.append(Bassist(musician['name'], musician['instrument']))
-              continue
-
-          elif musician['instrument'] == 'Drums':
-              cls.members.append(Drummer(musician['name'], musician['instrument']))
-              continue
+    def play_solos(cls):
+        return [member.play_solo() for member in cls.members]
 
     @classmethod
     def to_list(cls):
-        print(cls.members)
-        return cls.members
+        return cls.instances
 
-
-class Musician(Band):
-    musician_list = []
-
-    def __init__(self, name):
+class Musician:
+    ''' class which inherited to any kind of musician'''
+    def __init__(self, name, instrument):
         self.name = name
- 
-
-    @classmethod
-    def get_members(cls):
-        return cls.musician_list
-    
+        self.instrument = instrument
 
 class Guitarist(Musician):
-    def __init__(self, name, instrument):
+    ''' It is a sub class that creates a musician that can play guitar '''
+    def __init__(self, name):
         self.name = name
-        self.instrument = instrument
-        super().__init__(name)
+        self.instrument = "guitar"
 
-    def play_solo(self):
-        return 'face melting guitar solo'
-
-    def get_instrument(self):
-        return 'guitar'
-    
-    @abstractmethod
     def __str__(self):
-        return f"My name is {self.name} and I play {self.instrument}"
+        return f"My name is {self.name} and I play guitar"
     
-    @abstractmethod
     def __repr__(self):
         return f"Guitarist instance. Name = {self.name}"
-
-class Bassist(Musician):
-    def __init__(self, name, instrument):
-        self.name = name
-        self.instrument = instrument
-        super().__init__(name)
+    
+    def get_instrument(self):
+        return "guitar"
 
     def play_solo(self):
-        return 'bom bom buh bom'
-
-    def get_instrument(self):
-        return 'Bass'
-    
-    
-    @abstractmethod
-    def __str__(self):
-        return f"My name is {self.name} and I play {self.instrument}"
-    
-    @abstractmethod
-    def __repr__(self):
-        return f"Bassist instance. Name = {self.name}"
+        return "face melting guitar solo"
 
 
 class Drummer(Musician):
-    def __init__(self, name, instrument):
+    ''' It is a sub class that creates a musician that can play drum '''
+    def __init__(self, name):
         self.name = name
-        self.instrument = instrument
-        super().__init__(name)
+        self.instrument = "drums"
 
-    def play_solo(self):
-        return 'rattle boom crash'
-
-    def get_instrument(self):
-        return 'Drums'
-    
-    @abstractmethod
     def __str__(self):
-        return f"My name is {self.name} and I play {self.instrument}"
+        return f"My name is {self.name} and I play drums"
     
-    @abstractmethod
     def __repr__(self):
         return f"Drummer instance. Name = {self.name}"
+    
+    def get_instrument(self):
+        return "drums"
+
+    def play_solo(self):
+        return "rattle boom crash"
 
 
-data =  data = [
-    {'name': 'Jimmy',
-     'instrument': 'Guitar'
-     },
+class Bassist(Musician):
+    ''' It is a sub class that creates a musician that can play bass '''
+    def __init__(self, name):
+        self.name = name
+        self.instrument = "bass"
 
-    {'name': 'Michael',
-        'instrument': 'Bass'
-     },
-    {'name': 'Lisa',
-        'instrument': 'Drums'
-     }
-]
+    def __str__(self):
+        return f"My name is {self.name} and I play bass"
+    
+    def __repr__(self):
+        return f"Bassist instance. Name = {self.name}"
+    
+    def get_instrument(self):
+        return "bass"
 
-
-Band.create_from_data(data)
-Band.play_solos()
-Band.to_list()
+    def play_solo(self):
+        return "bom bom buh bom"
